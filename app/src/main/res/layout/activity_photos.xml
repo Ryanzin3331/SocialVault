@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#0B0F19" android:fillViewport="true">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:paddingStart="18dp" android:paddingEnd="18dp"
+        android:paddingTop="24dp" android:paddingBottom="30dp">
+        <Button android:id="@+id/photoBackButton" android:layout_width="wrap_content"
+            android:layout_height="44dp" android:text="← Voltar" android:textAllCaps="false"
+            android:textColor="#E2E9F4" android:background="@drawable/bg_secondary"
+            android:backgroundTint="@null" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="20dp" android:text="FOTOS DO TIKTOK"
+            android:textSize="12sp" android:textStyle="bold" android:letterSpacing="0.13"
+            android:textColor="#68E5C0" />
+        <TextView android:id="@+id/photoTitle" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginTop="10dp"
+            android:text="Consultando a publicação…" android:textSize="21sp"
+            android:textColor="#FFFFFF" android:textStyle="bold" />
+        <TextView android:id="@+id/photoHint" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginTop="8dp"
+            android:text="Toque nas miniaturas para ampliar e marque as fotos desejadas."
+            android:textSize="13sp" android:textColor="#A9B9C9" />
+        <ProgressBar android:id="@+id/photoLoading" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginTop="10dp" />
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" android:background="@drawable/bg_card"
+            android:padding="10dp" android:orientation="vertical">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button android:id="@+id/selectAllPhotos" android:layout_width="0dp"
+                    android:layout_weight="1" android:layout_height="44dp"
+                    android:text="Marcar todas" android:textAllCaps="false"
+                    android:background="@drawable/bg_secondary" android:backgroundTint="@null"
+                    android:textColor="#E2E9F4" />
+                <Button android:id="@+id/clearPhotos" android:layout_width="0dp"
+                    android:layout_weight="1" android:layout_height="44dp"
+                    android:layout_marginStart="8dp" android:text="Desmarcar"
+                    android:textAllCaps="false" android:background="@drawable/bg_secondary"
+                    android:backgroundTint="@null" android:textColor="#E2E9F4" />
+            </LinearLayout>
+            <LinearLayout android:id="@+id/photoCardsContainer" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:orientation="vertical"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
+        <TextView android:id="@+id/photoStatus" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginTop="18dp"
+            android:text="Obtendo fotos…" android:textSize="13sp" android:textColor="#A9B9C9" />
+        <Button android:id="@+id/savePhotos" android:layout_width="match_parent"
+            android:layout_height="55dp" android:layout_marginTop="12dp"
+            android:enabled="false" android:text="Salvar fotos selecionadas"
+            android:textAllCaps="false" android:background="@drawable/bg_button"
+            android:backgroundTint="@null" android:textColor="#082822"
+            android:textStyle="bold" />
+        <Button android:id="@+id/cancelPhotos" android:layout_width="match_parent"
+            android:layout_height="44dp" android:layout_marginTop="8dp"
+            android:visibility="gone" android:text="Cancelar download"
+            android:textAllCaps="false" android:background="@drawable/bg_secondary"
+            android:backgroundTint="@null" android:textColor="#E2E9F4" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" android:textSize="12sp" android:textColor="#748598"
+            android:text="Fotos permitidas serão salvas em Imagens/SocialVault. O vídeo com música chegará na próxima etapa." />
+    </LinearLayout>
+</ScrollView>

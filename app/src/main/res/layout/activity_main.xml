@@ -66,6 +66,11 @@
                 android:layout_marginTop="8dp" android:textColor="#A9B9C9"
                 android:textSize="12sp"
                 android:text="Automático baixa a maior resolução MP4 compatível disponível." />
+            <Button android:id="@+id/photosButton" android:layout_width="match_parent"
+                android:layout_height="46dp" android:layout_marginTop="16dp"
+                android:text="📷 Ver fotos da publicação" android:textAllCaps="false"
+                android:textColor="#E2E9F4" android:background="@drawable/bg_secondary"
+                android:backgroundTint="@null" />
             <Button android:id="@+id/downloadButton" android:layout_width="match_parent"
                 android:layout_height="56dp" android:layout_marginTop="20dp"
                 android:text="BAIXAR AGORA" android:textColor="#082822"

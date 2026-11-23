@@ -55,6 +55,7 @@ public final class MainActivity extends Activity {
     private ProgressBar progressBar;
     private Spinner qualitySpinner;
     private Button qualityButton;
+    private Button photosButton;
     private TextView qualityInfo;
     private TextView qualityTitle;
     private final List<Integer> availableHeights = new ArrayList<>();
@@ -90,6 +91,8 @@ public final class MainActivity extends Activity {
         formatInfo = findViewById(R.id.formatInfo);
         qualitySpinner = findViewById(R.id.qualitySpinner);
         qualityButton = findViewById(R.id.qualityButton);
+        photosButton = findViewById(R.id.photosButton);
+        photosButton.setOnClickListener(v -> openPhotoMode());
         qualityInfo = findViewById(R.id.qualityInfo);
         qualityTitle = findViewById(R.id.qualityTitle);
         resetQualities();
@@ -138,10 +141,23 @@ public final class MainActivity extends Activity {
         if (url != null) {
             linkInput.setText(url);
             linkInput.setSelection(url.length());
-            if (!busy) setStatus("Link recebido! Escolha MP4 ou MP3 e toque em Baixar.");
+            if (!busy) setStatus("Link recebido! Escolha MP4/MP3 ou abra o modo Fotos.");
+            if (!busy && url.contains("/photo/")) openPhotoMode();
         } else if (!busy) {
             setStatus("O texto compartilhado não contém um link TikTok reconhecido.");
         }
+    }
+
+    private void openPhotoMode() {
+        if (busy || checking) return;
+        String url = TikTokLink.extract(linkInput.getText().toString());
+        if (url == null) {
+            linkInput.setError("Compartilhe ou cole um link oficial do TikTok.");
+            return;
+        }
+        Intent photoIntent = new Intent(this, PhotoActivity.class);
+        photoIntent.putExtra("post_url", url);
+        startActivity(photoIntent);
     }
 
     private void resetQualities() {
