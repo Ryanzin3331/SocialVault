@@ -1,0 +1,44 @@
+name: Compilar APK SocialVault
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main, master ]
+
+permissions:
+  contents: read
+
+jobs:
+  debug-apk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Baixar codigo
+        uses: actions/checkout@v4
+      - name: Configurar Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Configurar Python para Chaquopy
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Configurar Android SDK
+        uses: android-actions/setup-android@v3
+      - name: Instalar Android SDK 35
+        run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
+      - name: Configurar Gradle 8.11.1
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.11.1'
+      - name: Testar motor Python
+        run: python -m unittest discover -s tests -v
+      - name: Compilar APK e testar parser Java
+        run: gradle --no-daemon :app:assembleDebug :app:testDebugUnitTest
+      - name: Disponibilizar APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: SocialVault-v0.2-alpha-debug-apk
+          path: app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
+          retention-days: 14
