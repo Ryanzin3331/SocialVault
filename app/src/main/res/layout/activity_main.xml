@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootScroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0B0F19"
+    android:fillViewport="true"
+    android:clipToPadding="false">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:paddingStart="20dp"
+        android:paddingEnd="20dp" android:paddingTop="20dp" android:paddingBottom="26dp">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="SOCIALVAULT" android:textColor="#68E5C0"
+            android:letterSpacing="0.14" android:textStyle="bold" android:textSize="12sp" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="10dp" android:text="Seu vídeo. Sem complicar."
+            android:textColor="#F6F8FB" android:textStyle="bold" android:textSize="27sp" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="5dp" android:text="Compartilhe do TikTok ou cole um link."
+            android:textColor="#9FABBC" android:textSize="14sp" />
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="24dp" android:orientation="vertical"
+            android:padding="17dp" android:background="@drawable/bg_card">
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="LINK DO VÍDEO" android:letterSpacing="0.12"
+                android:textColor="#A6B5C7" android:textSize="11sp" android:textStyle="bold" />
+            <EditText android:id="@+id/linkInput" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:minHeight="54dp" android:layout_marginTop="12dp" android:padding="12dp"
+                android:background="@drawable/bg_input" android:hint="https://vt.tiktok.com/..."
+                android:textColor="#FFFFFF" android:textColorHint="#68798E"
+                android:inputType="textUri" android:singleLine="false" android:maxLines="3"
+                android:textSize="14sp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="18dp" android:text="FORMATO"
+                android:letterSpacing="0.12" android:textColor="#A6B5C7"
+                android:textSize="11sp" android:textStyle="bold" />
+            <RadioGroup android:id="@+id/modeGroup" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+                <RadioButton android:id="@+id/mp4Radio" android:layout_width="0dp"
+                    android:layout_weight="1" android:layout_height="52dp" android:checked="true"
+                    android:text="🎬 MP4" android:textColor="#F6F8FB" android:buttonTint="#68E5C0" />
+                <RadioButton android:id="@+id/mp3Radio" android:layout_width="0dp"
+                    android:layout_weight="1" android:layout_height="52dp"
+                    android:text="🎵 MP3" android:textColor="#F6F8FB" android:buttonTint="#68E5C0" />
+            </RadioGroup>
+            <TextView android:id="@+id/formatInfo" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:text="MP4: melhor arquivo compatível disponível (sem reencodar)."
+                android:textColor="#A9B9C9" android:textSize="12sp" />
+            <Button android:id="@+id/downloadButton" android:layout_width="match_parent"
+                android:layout_height="56dp" android:layout_marginTop="20dp"
+                android:text="BAIXAR AGORA" android:textColor="#082822"
+                android:textStyle="bold" android:textSize="14sp" android:allCaps="false"
+                android:background="@drawable/bg_button" android:backgroundTint="@null" />
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="15dp" android:padding="17dp"
+            android:background="@drawable/bg_card" android:orientation="vertical">
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="STATUS" android:textColor="#A6B5C7" android:textStyle="bold"
+                android:letterSpacing="0.12" android:textSize="11sp" />
+            <TextView android:id="@+id/statusText" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginTop="9dp"
+                android:text="Pronto para receber um link." android:textColor="#F0F4FA"
+                android:textSize="14sp" />
+            <ProgressBar android:id="@+id/progressBar" style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent" android:layout_height="8dp"
+                android:layout_marginTop="14dp" android:max="100" android:progress="0"
+                android:progressTint="#68E5C0" android:progressBackgroundTint="#304152" />
+            <TextView android:id="@+id/progressLabel" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginTop="8dp"
+                android:text="0%" android:textColor="#9DAEC0" android:textSize="12sp" />
+            <Button android:id="@+id/cancelButton" android:layout_width="match_parent"
+                android:layout_height="46dp" android:layout_marginTop="11dp"
+                android:text="Cancelar" android:textColor="#E2E9F4"
+                android:background="@drawable/bg_secondary" android:backgroundTint="@null"
+                android:visibility="gone" android:allCaps="false" />
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="15dp" android:padding="17dp"
+            android:background="@drawable/bg_card" android:orientation="vertical">
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="ÚLTIMO DOWNLOAD" android:textColor="#A6B5C7"
+                android:letterSpacing="0.12" android:textSize="11sp" android:textStyle="bold" />
+            <TextView android:id="@+id/savedText" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginTop="10dp"
+                android:text="Ainda não há arquivos salvos." android:textColor="#F0F4FA"
+                android:textSize="13sp" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="12dp" android:orientation="horizontal">
+                <Button android:id="@+id/openButton" android:layout_width="0dp"
+                    android:layout_weight="1" android:layout_height="46dp"
+                    android:text="Abrir" android:textColor="#E2E9F4" android:enabled="false"
+                    android:background="@drawable/bg_secondary" android:backgroundTint="@null"
+                    android:allCaps="false" />
+                <Button android:id="@+id/shareButton" android:layout_width="0dp"
+                    android:layout_weight="1" android:layout_height="46dp" android:layout_marginStart="10dp"
+                    android:text="Compartilhar" android:textColor="#E2E9F4" android:enabled="false"
+                    android:background="@drawable/bg_secondary" android:backgroundTint="@null"
+                    android:allCaps="false" />
+            </LinearLayout>
+        </LinearLayout>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="17dp" android:text="Sem anúncios ou login. Baixe apenas mídias cujo salvamento é autorizado."
+            android:textColor="#748598" android:textSize="12sp" android:gravity="center" />
+    </LinearLayout>
+</ScrollView>
